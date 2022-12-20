@@ -358,7 +358,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.FIGHT_REACH_REDUCE, true, 785);
         set(ConfPaths.FIGHT_REACH_REDUCEDISTANCE, 0.9, 785);
         set(ConfPaths.FIGHT_REACH_REDUCESTEP, 0.15, 785);
-        set(ConfPaths.FIGHT_REACH_ACTIONS, "cancel vl>10 log:freach:2:5:if cancel", 785);
+        set(ConfPaths.FIGHT_REACH_ACTIONS, "cancel vl>10 cmd:banip", 785);
 
         set(ConfPaths.FIGHT_SELFHIT_CHECK, "default", 785);
         set(ConfPaths.FIGHT_SELFHIT_ACTIONS, "log:fselfhit:0:5:if cancel vl>10 log:fselfhit:0:5:icf cancel cmd:kickselfhit", 785);
