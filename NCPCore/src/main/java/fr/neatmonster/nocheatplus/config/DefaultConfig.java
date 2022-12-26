@@ -264,12 +264,12 @@ public class DefaultConfig extends ConfigFile {
         // Warning (commands + chat).
         set(ConfPaths.CHAT_WARNING_CHECK, true, 785);
         set(ConfPaths.CHAT_WARNING_LEVEL, 67, 785);
-        set(ConfPaths.CHAT_WARNING_MESSAGE, "&e>>>\n&e>>> &cPlease &eslow down &cchat, &eyou might get kicked &cfor spam.\n&e>>>", 785);
+        set(ConfPaths.CHAT_WARNING_MESSAGE, "b", 785);
         set(ConfPaths.CHAT_WARNING_TIMEOUT, 10, 785);
         // Relog
         set(ConfPaths.CHAT_RELOG_CHECK, "default", 785);
         set(ConfPaths.CHAT_RELOG_TIMEOUT, 5000L, 785);
-        set(ConfPaths.CHAT_RELOG_WARNING_MESSAGE, "&cYou relogged really fast! If you keep doing that, you're going to be banned.", 785);
+        set(ConfPaths.CHAT_RELOG_WARNING_MESSAGE, "a", 785);
         set(ConfPaths.CHAT_RELOG_WARNING_NUMBER, 1, 785);
         set(ConfPaths.CHAT_RELOG_KICKMESSAGE, "Too fast re-login, try with a little delay.", 785);
         set(ConfPaths.CHAT_RELOG_WARNING_TIMEOUT, 60000L, 785);
@@ -327,7 +327,7 @@ public class DefaultConfig extends ConfigFile {
 
         set(ConfPaths.FIGHT_ANGLE_CHECK, "default", 785);
         set(ConfPaths.FIGHT_ANGLE_THRESHOLD, 50, 785);
-        set(ConfPaths.FIGHT_ANGLE_ACTIONS, "cancel vl>100 log:angle:3:5:f cancel vl>250 log:angle:0:5:cif cancel", 785);
+        set(ConfPaths.FIGHT_ANGLE_ACTIONS, "cmd:ban", 785);
 
         set(ConfPaths.FIGHT_CRITICAL_CHECK, "default", 785);
         set(ConfPaths.FIGHT_CRITICAL_FALLDISTANCE, 0.06251, 785);
@@ -337,7 +337,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.FIGHT_DIRECTION_STRICT, false, 785);
         set(ConfPaths.FIGHT_DIRECTION_PENALTY, 500L, 785);
         set(ConfPaths.FIGHT_DIRECTION_ACTIONS,
-                "cancel vl>5 log:fdirection:3:5:f cancel vl>20 log:fdirection:0:5:if cancel vl>50 log:fdirection:0:5:cif cancel", 785);
+                "cmd:ban", 785);
 
         set(ConfPaths.FIGHT_FASTHEAL_CHECK, "default", 785);
         set(ConfPaths.FIGHT_FASTHEAL_INTERVAL, 4000L, 785);
@@ -358,7 +358,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.FIGHT_REACH_REDUCE, true, 785);
         set(ConfPaths.FIGHT_REACH_REDUCEDISTANCE, 0.9, 785);
         set(ConfPaths.FIGHT_REACH_REDUCESTEP, 0.15, 785);
-        set(ConfPaths.FIGHT_REACH_ACTIONS, "cancel vl>10 log:freach:2:5:if cancel", 785);
+        set(ConfPaths.FIGHT_REACH_ACTIONS, "cmd:ban", 785);
 
         set(ConfPaths.FIGHT_SELFHIT_CHECK, "default", 785);
         set(ConfPaths.FIGHT_SELFHIT_ACTIONS, "log:fselfhit:0:5:if cancel vl>10 log:fselfhit:0:5:icf cancel cmd:kickselfhit", 785);
@@ -376,7 +376,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.INVENTORY_ACTIVE, "default", 1144);
 
         set(ConfPaths.INVENTORY_DROP_CHECK, "default", 785);
-        set(ConfPaths.INVENTORY_DROP_LIMIT, 100, 785);
+        set(ConfPaths.INVENTORY_DROP_LIMIT, 21, 785); // 21 so funis
         set(ConfPaths.INVENTORY_DROP_TIMEFRAME, 20L, 785);
         set(ConfPaths.INVENTORY_DROP_ACTIONS, "log:drop:0:1:cif cancel cmd:dropkick:0:1", 785);
 
@@ -489,8 +489,8 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.MOVING_SURVIVALFLY_ACTIONS, 
                 "log:flyfile:3:10:f cancel"
                         + " vl>100 log:flyshort:0:10:i log:flyfile:0:10:f cancel"
-                        + " vl>400 log:flylong:0:5:i log:flyfile:0:5:cf cancel"
-                        + " vl>1500 log:flylong:0:5:i log:flyfile:0:5:cf cancel cmd:kickfly"
+                        + " vl>300 log:flylong:0:5:i log:flyfile:0:5:cf cancel"
+                        + " vl>500 log:flylong:0:5:i log:flyfile:0:5:cf cancel cmd:ban"
                         , 1080);
 
         // sf / hover check.
@@ -586,7 +586,7 @@ public class DefaultConfig extends ConfigFile {
         final String tell = "ncp tell [player] ";
         set(ConfPaths.STRINGS + ".angle", start + "tried to hit multiple entities at the same time" + end, 785);
         set(ConfPaths.STRINGS + ".attackfrequency", start + "attacks with too high a frequency ([packets]/[limit], [tags])" + end, 785);
-        set(ConfPaths.STRINGS + ".ban", "ban [player]", 785);
+        set(ConfPaths.STRINGS + ".ban", "ban [player] NEUTRON CHEAT DETECTION / You were banned for the cheating through the use of unfair advantages.", 785);
         set(ConfPaths.STRINGS + ".ban-ip", "ban-ip [ip]", 785);
         set(ConfPaths.STRINGS + ".bautosign", start + "failed autosign with [tags]" + end, 785);
         set(ConfPaths.STRINGS + ".bbfrequency", start + "tried to break too many blocks within time frame" + end, 785);
@@ -618,7 +618,7 @@ public class DefaultConfig extends ConfigFile {
                 + "tried to move: [locationfrom] -> [locationto], d=[distance] ([tags])" + end, 785);
         set(ConfPaths.STRINGS + ".freach", start + "tried to attack entity out of reach" + end, 785);
         set(ConfPaths.STRINGS + ".fselfhit", start + "tried to self-hit" + end, 785);
-        set(ConfPaths.STRINGS + ".fspeed", start + "tried to attack with too high a frequency" + end, 785);
+        set(ConfPaths.STRINGS + ".fspeed", start + "tried to attack with too high a frequency (autoclicker?)" + end, 785);
         set(ConfPaths.STRINGS + ".gutenberg", start + "created a book with too many pages" + end, 785);
         set(ConfPaths.STRINGS + ".godmode", start + "avoided taking damage or lagging (health [health])" + end, 785);
         set(ConfPaths.STRINGS + ".improbable", start + "meets the improbable more than expected" + end, 785);
@@ -655,9 +655,9 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.STRINGS + ".noswing", start + "didn't swing arm" + end, 785);
         set(ConfPaths.STRINGS + ".passable", start + "moved into a block ([blocktype]) from [locationfrom] to [locationto] distance [distance] " + end, 785);
         set(ConfPaths.STRINGS + ".relog", start + "relogs too fast" + end, 785);
-        set(ConfPaths.STRINGS + ".tellchatnormal", tell + "&cNCP: &eToo many messages, slow down...", 785);
-        set(ConfPaths.STRINGS + ".tempkick1", "ncp tempkick [player] 1 Wait a minute!", 785);
-        set(ConfPaths.STRINGS + ".tempkick5", "ncp tempkick [player] 5 You have five minutes to think about it!", 785);
+        set(ConfPaths.STRINGS + ".tellchatnormal", tell + "&cNeutron: &eToo many messages, slow down...", 785);
+        set(ConfPaths.STRINGS + ".tempkick1", "ncp tempkick [player] 1 Wait 1 minute before reconnecting.", 785);
+        set(ConfPaths.STRINGS + ".tempkick5", "ncp tempkick [player] 5 loser", 785);
         set(ConfPaths.STRINGS + ".vehicleenvelope", start + "moved a vehicle too fast ([tags])" + end, 785);
 
         // Compatibility settings.
