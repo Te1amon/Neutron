@@ -182,7 +182,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.BLOCKPLACE_FASTPLACE_LIMIT, 22, 785);
         set(ConfPaths.BLOCKPLACE_FASTPLACE_SHORTTERM_TICKS, 10, 785);
         set(ConfPaths.BLOCKPLACE_FASTPLACE_SHORTTERM_LIMIT, 6, 785);
-        set(ConfPaths.BLOCKPLACE_FASTPLACE_ACTIONS, "cancel", 785);
+        set(ConfPaths.BLOCKPLACE_FASTPLACE_ACTIONS, "cancel vl>100 log:fastplace:3:5:cif cancel", 785);
 
         set(ConfPaths.BLOCKPLACE_REACH_CHECK, "default", 785);
         set(ConfPaths.BLOCKPLACE_REACH_ACTIONS, unifiedBlockReachActions, 785);
@@ -297,7 +297,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.COMBINED_IMPROBABLE_CHECK , "default", 785);
         set(ConfPaths.COMBINED_IMPROBABLE_LEVEL, 300, 785);
         //        set(ConfPaths.COMBINED_IMPROBABLE_FASTBREAK_CHECK, false, 785);
-        set(ConfPaths.COMBINED_IMPROBABLE_ACTIONS, "cmd:banip", 785);
+        set(ConfPaths.COMBINED_IMPROBABLE_ACTIONS, "cancel log:improbable:2:8:if", 785);
 
         set(ConfPaths.COMBINED_INVULNERABLE_CHECK, true, 785); // Not a check type yet.
         set(ConfPaths.COMBINED_INVULNERABLE_TRIGGERS_ALWAYS, false, 785);
@@ -327,11 +327,11 @@ public class DefaultConfig extends ConfigFile {
 
         set(ConfPaths.FIGHT_ANGLE_CHECK, "default", 785);
         set(ConfPaths.FIGHT_ANGLE_THRESHOLD, 50, 785);
-        set(ConfPaths.FIGHT_ANGLE_ACTIONS, "cmd:banip", 785);
+        set(ConfPaths.FIGHT_ANGLE_ACTIONS, "cancel vl>100 log:angle:3:5:f cancel vl>250 log:angle:0:5:cif cancel", 785);
 
         set(ConfPaths.FIGHT_CRITICAL_CHECK, "default", 785);
         set(ConfPaths.FIGHT_CRITICAL_FALLDISTANCE, 0.06251, 785);
-        set(ConfPaths.FIGHT_CRITICAL_ACTIONS, "cmd:banip", 785);
+        set(ConfPaths.FIGHT_CRITICAL_ACTIONS, "cmd:ban", 785);
 
         set(ConfPaths.FIGHT_DIRECTION_CHECK, "default", 785);
         set(ConfPaths.FIGHT_DIRECTION_STRICT, false, 785);
@@ -358,14 +358,14 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.FIGHT_REACH_REDUCE, true, 785);
         set(ConfPaths.FIGHT_REACH_REDUCEDISTANCE, 0.9, 785);
         set(ConfPaths.FIGHT_REACH_REDUCESTEP, 0.15, 785);
-        set(ConfPaths.FIGHT_REACH_ACTIONS, "cancel vl>10 cmd:banip", 785);
+        set(ConfPaths.FIGHT_REACH_ACTIONS, "cancel vl>10 log:freach:2:5:if cancel", 785);
 
         set(ConfPaths.FIGHT_SELFHIT_CHECK, "default", 785);
         set(ConfPaths.FIGHT_SELFHIT_ACTIONS, "log:fselfhit:0:5:if cancel vl>10 log:fselfhit:0:5:icf cancel cmd:kickselfhit", 785);
 
         set(ConfPaths.FIGHT_SPEED_CHECK, "default", 785);
         set(ConfPaths.FIGHT_SPEED_LIMIT, 15, 785);
-        set(ConfPaths.FIGHT_SPEED_ACTIONS, "cancel", 785);
+        set(ConfPaths.FIGHT_SPEED_ACTIONS, "cancel vl>50 log:fspeed:0:5:if cancel", 785);
         set(ConfPaths.FIGHT_SPEED_SHORTTERM_TICKS, 7, 785);
         set(ConfPaths.FIGHT_SPEED_SHORTTERM_LIMIT, 6, 785);
 
@@ -385,7 +385,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.INVENTORY_FASTCLICK_TWEAKS1_5, true, 785);
         set(ConfPaths.INVENTORY_FASTCLICK_LIMIT_SHORTTERM, 4, 785);
         set(ConfPaths.INVENTORY_FASTCLICK_LIMIT_NORMAL, 15, 785);
-        set(ConfPaths.INVENTORY_FASTCLICK_ACTIONS, "cancel", 785);
+        set(ConfPaths.INVENTORY_FASTCLICK_ACTIONS, "cancel vl>50 log:fastclick:3:5:cif cancel", 785);
 
         set(ConfPaths.INVENTORY_INSTANTBOW_CHECK, "default", 785);
         set(ConfPaths.INVENTORY_INSTANTBOW_STRICT, true, 785);
@@ -428,7 +428,7 @@ public class DefaultConfig extends ConfigFile {
             set(ConfPaths.MOVING_CREATIVEFLY_MODEL + "spectator." + ConfPaths.SUB_VERTICAL_ASCEND_SPEED, 170, 1103);
             set(ConfPaths.MOVING_CREATIVEFLY_MODEL + "spectator." + ConfPaths.SUB_VERTICAL_MAXHEIGHT, 128, 785);
             set(ConfPaths.MOVING_CREATIVEFLY_MODEL + "spectator." + ConfPaths.SUB_GRAVITY, false, 785);
-            set(ConfPaths.MOVING_CREATIVEFLY_MODEL + "spectator." + ConfPaths.SUB_GROUND, false, 785);f
+            set(ConfPaths.MOVING_CREATIVEFLY_MODEL + "spectator." + ConfPaths.SUB_GROUND, false, 785);
         }
         if (Bridge1_9.hasLevitation()) {
             set(ConfPaths.MOVING_CREATIVEFLY_MODEL + "levitation." + ConfPaths.SUB_HORIZONTAL_SPEED, 50, 785);
@@ -460,7 +460,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.MOVING_MOREPACKETS_BURST_DIRECT, 60, 785);
         set(ConfPaths.MOVING_MOREPACKETS_BURST_EPM, 180, 785);
         set(ConfPaths.MOVING_MOREPACKETS_SETBACKAGE, 40, 1091);
-        set(ConfPaths.MOVING_MOREPACKETS_ACTIONS, "cancel vl>10 cmd:banip", 785);
+        set(ConfPaths.MOVING_MOREPACKETS_ACTIONS, "cancel vl>10 log:morepackets:0:2:if cancel vl>100 log:morepackets:0:2:if cancel cmd:kickpackets", 785);
 
         set(ConfPaths.MOVING_NOFALL_CHECK, "default", 785);
         set(ConfPaths.MOVING_NOFALL_DEALDAMAGE, true, 785);
@@ -469,10 +469,10 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.MOVING_NOFALL_RESETONTP, false, 785);
         set(ConfPaths.MOVING_NOFALL_RESETONVEHICLE, true, 785);
         set(ConfPaths.MOVING_NOFALL_ANTICRITICALS, true, 785);
-        set(ConfPaths.MOVING_NOFALL_ACTIONS, "cancel vl>10 cmd:banip", 785);
+        set(ConfPaths.MOVING_NOFALL_ACTIONS, "log:nofall:0:5:if cancel vl>30 log:nofall:0:5:icf cancel", 785);
 
         set(ConfPaths.MOVING_PASSABLE_CHECK, "default", 785);
-        set(ConfPaths.MOVING_PASSABLE_ACTIONS, "cancel vl>10 cmd:banip", 785);
+        set(ConfPaths.MOVING_PASSABLE_ACTIONS, "cancel vl>10 log:passable:0:5:if cancel vl>50 log:passable:0:5:icf cancel", 785);
         set(ConfPaths.MOVING_PASSABLE_UNTRACKED_TELEPORT_ACTIVE, true, 785);
         set(ConfPaths.MOVING_PASSABLE_UNTRACKED_CMD_ACTIVE, true, 785);
         set(ConfPaths.MOVING_PASSABLE_UNTRACKED_CMD_TRYTELEPORT, true, 785);
@@ -486,7 +486,12 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.MOVING_SURVIVALFLY_LENIENCY_FREEZEINAIR, true, 1143);
         set(ConfPaths.MOVING_SURVIVALFLY_SETBACKPOLICY_FALLDAMAGE, true, 785);
         set(ConfPaths.MOVING_SURVIVALFLY_SETBACKPOLICY_VOIDTOVOID, true, 785);
-        set(ConfPaths.MOVING_SURVIVALFLY_ACTIONS, "cancel vl>21 cmd:banip", 785);
+        set(ConfPaths.MOVING_SURVIVALFLY_ACTIONS, 
+                "log:flyfile:3:10:f cancel"
+                        + " vl>100 log:flyshort:0:10:i log:flyfile:0:10:f cancel"
+                        + " vl>400 log:flylong:0:5:i log:flyfile:0:5:cf cancel"
+                        + " vl>1500 log:flylong:0:5:i log:flyfile:0:5:cf cancel cmd:kickfly"
+                        , 1080);
 
         // sf / hover check.
         set(ConfPaths.MOVING_SURVIVALFLY_HOVER_CHECK, true, 785); // Not a check type yet.
@@ -525,7 +530,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.MOVING_VEHICLE_SCHEDULESETBACKS, "default", 785);
 
         set(ConfPaths.MOVING_VEHICLE_MOREPACKETS_CHECK, "default", 785);
-        set(ConfPaths.MOVING_VEHICLE_MOREPACKETS_ACTIONS, "cancel vl>10 cmd:banip", 785);
+        set(ConfPaths.MOVING_VEHICLE_MOREPACKETS_ACTIONS, "cancel vl>10 log:morepackets:0:2:if cancel", 785);
 
         set(ConfPaths.MOVING_VEHICLE_ENVELOPE_ACTIVE, "default", 785);
         set(ConfPaths.MOVING_VEHICLE_ENVELOPE_ACTIONS, "cancel vl>100 cancel log:vehicleenvelope:0:15:icf", 785);
